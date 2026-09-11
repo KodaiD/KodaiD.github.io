@@ -1,0 +1,33 @@
+{{ define "main" }}
+  <h1>{{ .Title }}</h1>
+  {{ with .Content }}<div class="bio">{{ . }}</div>{{ end }}
+  {{ $d := hugo.Data.publications }}
+
+  {{ with $d.journal }}
+  <section class="section">
+    <h2>Refereed Journal Papers</h2>
+    <ul class="pub-list">{{ range sort . "year" "desc" }}{{ partial "publication.html" . }}{{ end }}</ul>
+  </section>
+  {{ end }}
+
+  {{ with $d.conference }}
+  <section class="section">
+    <h2>Refereed Conference Papers</h2>
+    <ul class="pub-list">{{ range sort . "year" "desc" }}{{ partial "publication.html" . }}{{ end }}</ul>
+  </section>
+  {{ end }}
+
+  {{ with $d.talks }}
+  <section class="section">
+    <h2>Talks</h2>
+    <ul class="entry-list">{{ range sort . "year" "desc" }}{{ partial "simple-entry.html" . }}{{ end }}</ul>
+  </section>
+  {{ end }}
+
+  {{ with $d.awards }}
+  <section class="section">
+    <h2>Awards</h2>
+    <ul class="entry-list">{{ range . }}{{ partial "simple-entry.html" . }}{{ end }}</ul>
+  </section>
+  {{ end }}
+{{ end }}

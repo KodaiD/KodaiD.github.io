@@ -1,0 +1,55 @@
+baseURL            = "https://kodaid.github.io/"
+locale             = "ja"
+defaultContentLanguage = "ja"
+title              = "Kodai Doki"
+enableRobotsTXT    = true
+disableKinds       = ["taxonomy", "term"]
+enableGitInfo      = false
+summaryLength      = 40
+
+[pagination]
+  pagerSize = 30
+
+[params]
+  author = "Kodai Doki"
+  # サイト冒頭に出る所属。空にすると非表示。
+  affiliation = ""
+  description = "システムソフトウェアの研究・開発。LLM のサービングシステムとデータベースシステム。"
+  # 著者名のハイライト対象（業績リスト内で太字になる表記ゆれを列挙）
+  highlightNames = ["Kodai Doki", "K. Doki"]
+
+# フッターのリンク。不要な行は削除、URL は各自で設定。
+[[params.social]]
+  name = "GitHub"
+  url  = "https://github.com/KodaiD"
+[[params.social]]
+  name = "Google Scholar"
+  url  = ""
+[[params.social]]
+  name = "DBLP"
+  url  = ""
+
+[menu]
+  [[menu.main]]
+    name   = "About"
+    url    = "/"
+    weight = 1
+  [[menu.main]]
+    name   = "Publications"
+    url    = "/publications/"
+    weight = 2
+  [[menu.main]]
+    name   = "Blog"
+    url    = "/blog/"
+    weight = 3
+
+[markup]
+  [markup.goldmark.renderer]
+    unsafe = true
+  [markup.highlight]
+    noClasses = false
+    lineNos   = false
+    style     = "github"
+  [markup.tableOfContents]
+    startLevel = 2
+    endLevel   = 3

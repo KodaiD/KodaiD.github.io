@@ -1,0 +1,101 @@
+:root {
+  --bg: #ffffff;
+  --fg: #1a1a1a;
+  --muted: #6b6b6b;
+  --rule: #dcdcd8;
+  --link: #234b8c;
+  --code-bg: #f5f5f2;
+  /* --- 調整用 --- */
+  --measure: 46rem;   /* 本文カラムの最大幅。42rem=狭め / 46rem=標準 / 52rem=広め */
+  --base-size: 17px;  /* 本文の文字サイズ。上げるほど1行の字数が減って余裕が出る */
+  --gutter: 1.5rem;   /* 左右の余白 */
+
+  --serif: Georgia, "Times New Roman", "Hiragino Mincho ProN", "Yu Mincho", YuMincho, serif;
+  --mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #191919;
+    --fg: #dcdad4;
+    --muted: #8e8e88;
+    --rule: #343431;
+    --link: #93b4e0;
+    --code-bg: #222220;
+  }
+}
+
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--serif);
+  font-size: var(--base-size);
+  line-height: 1.8;
+  text-rendering: optimizeLegibility;
+}
+.wrap { max-width: var(--measure); margin: 0 auto; padding: 4rem var(--gutter) 5rem; }
+
+a { color: var(--link); text-decoration: underline; text-underline-offset: 0.15em; text-decoration-thickness: 1px; }
+a:hover { text-decoration-thickness: 2px; }
+.skip { position: absolute; left: -9999px; }
+.skip:focus { left: 1rem; top: 1rem; background: var(--bg); padding: 0.5rem; }
+.sep { color: var(--muted); margin: 0 0.45em; }
+
+/* --- header --- */
+.site-header { margin-bottom: 2.5rem; }
+.site-title { margin: 0; font-size: 1.5rem; font-weight: 700; letter-spacing: 0.01em; }
+.site-title a { color: inherit; text-decoration: none; }
+.site-affiliation { margin: 0.2rem 0 0; color: var(--muted); font-size: 0.9rem; }
+.site-nav { margin-top: 1.4rem; padding-bottom: 0.7rem; border-bottom: 1px solid var(--rule); font-size: 0.95rem; }
+.site-nav a[aria-current="page"] { color: inherit; text-decoration: none; font-weight: 700; }
+
+/* --- headings --- */
+h1 { font-size: 1.55rem; line-height: 1.5; margin: 0 0 1.4rem; }
+h2 { font-size: 1.12rem; margin: 2.6rem 0 1rem; padding-bottom: 0.35rem; border-bottom: 1px solid var(--rule); }
+h3 { font-size: 1rem; margin: 2rem 0 0.6rem; }
+.section:first-of-type h2 { margin-top: 2rem; }
+
+/* --- publications --- */
+.pub-list, .entry-list, .post-list { list-style: none; margin: 0; padding: 0; }
+.pub, .entry { margin-bottom: 1.3rem; line-height: 1.65; }
+.pub-authors, .pub-venue, .entry-venue { color: var(--muted); font-size: 0.9rem; }
+.pub-links { display: inline-block; margin-top: 0.15rem; font-size: 0.82rem; }
+.pub-links a { margin-right: 0.5rem; text-decoration: none; }
+.pub-links a::before { content: "["; }
+.pub-links a::after { content: "]"; }
+.pub-links a:hover { text-decoration: underline; }
+
+/* --- post list --- */
+.post-list li { display: flex; flex-wrap: wrap; gap: 0 1rem; margin-bottom: 0.45rem; line-height: 1.7; }
+.post-list time { flex: 0 0 auto; color: var(--muted); font-size: 0.88rem; font-variant-numeric: tabular-nums; }
+.more { margin-top: 1.2rem; font-size: 0.9rem; }
+.empty { color: var(--muted); }
+
+/* --- article body --- */
+.post-meta { margin: -0.8rem 0 2rem; color: var(--muted); font-size: 0.88rem; }
+main p { margin: 1.3em 0; }
+main ul, main ol { padding-left: 1.4em; }
+main li { margin: 0.35em 0; }
+blockquote { margin: 1.5em 0; padding-left: 1em; border-left: 2px solid var(--rule); color: var(--muted); }
+hr { border: 0; border-top: 1px solid var(--rule); margin: 2.5rem 0; }
+img, video { max-width: 100%; height: auto; }
+code { font-family: var(--mono); font-size: 0.86em; background: var(--code-bg); padding: 0.1em 0.3em; border-radius: 2px; }
+pre { background: var(--code-bg); padding: 0.9rem 1rem; overflow-x: auto; font-size: 0.86rem; line-height: 1.6; border: 1px solid var(--rule); }
+pre code { background: none; padding: 0; font-size: 1em; }
+table { border-collapse: collapse; width: 100%; font-size: 0.92rem; display: block; overflow-x: auto; }
+th, td { border-bottom: 1px solid var(--rule); padding: 0.5em 0.7em; text-align: left; }
+figure { margin: 1.8em 0; }
+figcaption { color: var(--muted); font-size: 0.85rem; text-align: center; }
+
+/* --- post nav / footer --- */
+.post-nav { display: flex; justify-content: space-between; gap: 1.5rem; margin-top: 3.5rem; padding-top: 1rem; border-top: 1px solid var(--rule); font-size: 0.9rem; }
+.post-nav .next { text-align: right; }
+.site-footer { margin-top: 4.5rem; padding-top: 1rem; border-top: 1px solid var(--rule); color: var(--muted); font-size: 0.85rem; }
+.site-footer p { margin: 0.3rem 0; }
+
+@media (max-width: 480px) {
+  :root { --base-size: 16px; --gutter: 1.1rem; }
+  .wrap { padding: 2.5rem var(--gutter) 3.5rem; }
+}

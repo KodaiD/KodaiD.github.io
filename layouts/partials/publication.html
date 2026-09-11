@@ -1,0 +1,13 @@
+{{- $authors := .authors -}}
+{{- range site.Params.highlightNames -}}
+  {{- $authors = replace $authors . (printf "<strong>%s</strong>" .) -}}
+{{- end -}}
+<li class="pub">
+  <span class="pub-title">{{ .title }}</span>
+  {{- with $authors }}<br><span class="pub-authors">{{ . | safeHTML }}</span>{{ end }}
+  <br><span class="pub-venue">{{ .venue }}{{ with .year }}, {{ . }}{{ end }}{{ with .pages }}, pp. {{ . }}{{ end }}.</span>
+  {{- $links := where (.links | default slice) "url" "!=" "" }}
+  {{- with $links }}
+  <span class="pub-links">{{ range . }}<a href="{{ .url }}">{{ .name }}</a>{{ end }}</span>
+  {{- end }}
+</li>

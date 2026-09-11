@@ -1,0 +1,14 @@
+{{ define "main" }}
+  <h1>{{ .Title }}</h1>
+  {{ with .Content }}<div class="bio">{{ . }}</div>{{ end }}
+  {{ $pages := .RegularPages.ByDate.Reverse }}
+  {{ if $pages }}
+  <ul class="post-list">
+    {{ range $pages }}
+    <li><time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006-01-02" }}</time><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+    {{ end }}
+  </ul>
+  {{ else }}
+  <p class="empty">記事はまだありません。</p>
+  {{ end }}
+{{ end }}

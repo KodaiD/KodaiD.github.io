@@ -1,0 +1,12 @@
+<header class="site-header">
+  {{ $inner := printf `<a href="%s">%s</a>` ("/" | relURL) site.Title | safeHTML }}
+  {{ if .IsHome }}<h1 class="site-title">{{ $inner }}</h1>{{ else }}<p class="site-title">{{ $inner }}</p>{{ end }}
+  {{ with site.Params.affiliation }}<p class="site-affiliation">{{ . }}</p>{{ end }}
+  <nav class="site-nav" aria-label="サイトナビゲーション">
+    {{ $page := . }}
+    {{ range $i, $m := site.Menus.main }}
+      {{ if $i }}<span class="sep" aria-hidden="true">·</span>{{ end }}
+      <a href="{{ $m.URL | relURL }}"{{ if or ($page.IsMenuCurrent "main" $m) ($page.HasMenuCurrent "main" $m) }} aria-current="page"{{ end }}>{{ $m.Name }}</a>
+    {{ end }}
+  </nav>
+</header>

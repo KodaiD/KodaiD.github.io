@@ -1,0 +1,48 @@
+# 業績データ。ここを編集すればトップページと /publications/ の両方に反映されます。
+# links は任意。url が空の項目は表示されません。
+#   links:
+#     - { name: "DOI", url: "https://doi.org/..." }
+#     - { name: "PDF", url: "/pdf/xxx.pdf" }
+#     - { name: "Slides", url: "..." }
+
+conference:
+  - title: "WoundDie: Concurrency Control Protocol with Lightweight Priority Control"
+    authors: "Kodai Doki, Takashi Hoshino, and Hideyuki Kawashima"
+    venue: "Proceedings of the 15th ACM SIGOPS Asia-Pacific Workshop on Systems (APSys '24)"
+    year: 2024
+    pages: "130–135"
+    links:
+      - { name: "DOI", url: "https://doi.org/10.1145/3678015.3680480" }
+      - { name: "PDF", url: "" }
+
+  - title: "Accelerating Scan Transaction with Node Locking"
+    authors: "Kodai Doki, Takashi Hoshino, Hideyuki Kawashima"
+    venue: "2023 IEEE 29th International Conference on Embedded and Real-Time Computing Systems and Applications (RTCSA), Niigata, Japan"
+    year: 2023
+    pages: "101–106"
+    links:
+      - { name: "DOI", url: "https://doi.org/10.1109/RTCSA58653.2023.00021" }
+      - { name: "PDF", url: "" }
+
+journal:
+  - title: "Accelerating Scan Transactions on Scan-intensive Workloads with Node Locking"
+    authors: "Kodai Doki, Takashi Hoshino, Hideyuki Kawashima"
+    venue: "Journal of Information Processing, Volume 34"
+    year: 2026
+    pages: "140–148"
+    links:
+      - { name: "DOI", url: "https://doi.org/10.2197/ipsjjip.34.140" }
+
+talks:
+  - title: "トップコンファレンスセッション"
+    venue: "FIT2025 (第24回情報科学技術フォーラム)"
+    year: 2025
+  - title: "凱旋講演"
+    venue: "ComSys 2024 (第36回コンピュータシステム・シンポジウム)"
+    year: 2024
+
+awards:
+  - title: "優秀若手発表賞"
+    venue: "第162回システムソフトウェアとオペレーティング・システム研究発表会"
+  - title: "CI Research Award"
+    venue: "2023年度修士論文, 慶應義塾大学政策・メディア研究科"

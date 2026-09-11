@@ -1,0 +1,9 @@
+<footer class="site-footer">
+  {{ $links := where site.Params.social "url" "!=" "" }}
+  {{ with $links }}
+  <p class="social">
+    {{ range $i, $s := . }}{{ if $i }}<span class="sep" aria-hidden="true">·</span>{{ end }}<a href="{{ $s.url }}" rel="me noopener">{{ $s.name }}</a>{{ end }}
+  </p>
+  {{ end }}
+  <p class="copyright">© {{ now.Year }} {{ site.Params.author }}</p>
+</footer>

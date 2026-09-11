@@ -1,0 +1,4 @@
+<li class="entry">
+  <span class="entry-title">{{ .title }}</span>
+  {{- with .venue }}<br><span class="entry-venue">{{ . }}{{ with $.year }}, {{ . }}{{ end }}</span>{{ end }}
+</li>

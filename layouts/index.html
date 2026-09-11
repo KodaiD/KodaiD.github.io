@@ -1,0 +1,29 @@
+{{ define "main" }}
+  {{ with .Content }}<section class="bio">{{ . }}</section>{{ end }}
+
+  {{ $pubs := slice }}
+  {{ range hugo.Data.publications.conference }}{{ $pubs = $pubs | append . }}{{ end }}
+  {{ range hugo.Data.publications.journal }}{{ $pubs = $pubs | append . }}{{ end }}
+  {{ with $pubs }}
+  <section class="section">
+    <h2>Publications</h2>
+    <ul class="pub-list">
+      {{ range first 3 (sort . "year" "desc") }}{{ partial "publication.html" . }}{{ end }}
+    </ul>
+    <p class="more"><a href="{{ "/publications/" | relURL }}">すべての業績 →</a></p>
+  </section>
+  {{ end }}
+
+  {{ $posts := where site.RegularPages "Section" "blog" }}
+  {{ with $posts }}
+  <section class="section">
+    <h2>Blog</h2>
+    <ul class="post-list">
+      {{ range first 5 . }}
+      <li><time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006-01-02" }}</time><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+      {{ end }}
+    </ul>
+    {{ if gt (len .) 5 }}<p class="more"><a href="{{ "/blog/" | relURL }}">すべての記事 →</a></p>{{ end }}
+  </section>
+  {{ end }}
+{{ end }}
